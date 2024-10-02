@@ -1,0 +1,114 @@
+.image_fixed {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+}
+.card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+.card-title {
+  color: #007bff; /* Green */
+}
+
+.card-text {
+  color: #607d8b; /* Grey */
+}
+/* Home.css */
+
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  background: linear-gradient(135deg, #277ad2, #277ad2);
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+  animation: fadeInUp 2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-content {
+  z-index: 1;
+}
+
+.company-name {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.company-address,
+.company-phone,
+.company-email {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+/* Background animation effect */
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3),
+    transparent 70%
+  );
+  animation: rotateBg 6s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotateBg {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .company-name {
+    font-size: 2rem;
+  }
+
+  .company-address,
+  .company-phone,
+  .company-email {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .company-name {
+    font-size: 1.5rem;
+  }
+
+  .company-address,
+  .company-phone,
+  .company-email {
+    font-size: 0.9rem;
+  }
+}
