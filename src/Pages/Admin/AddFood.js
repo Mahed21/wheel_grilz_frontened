@@ -1,6 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import "./Admin.css";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const AddFood = () => {
+  useEffect(() => {
+    // Check if userKey is not in local storage
+    if (!localStorage.getItem("userKey")) {
+      navigate("/"); // Redirect to home page
+    }
+  }, [navigate]);
   // State variables to store form data
   const [foodImage, setFoodImage] = useState(null);
   const [foodName, setFoodName] = useState("");
@@ -71,84 +79,96 @@ const AddFood = () => {
       setIsSubmitting(false); // Reset submission status
     }
   };
+  let navigate = useNavigate();
+  const backToHome = () => {
+    navigate("/");
+  };
 
   return (
-    <div className="container mt-5 w-50">
-      <h2 className="text-center">Add Food Item</h2>
-      <form onSubmit={addFood}>
-        {/* Image Upload Field */}
-        <div className="mb-3">
-          <label htmlFor="foodImage" className="form-label">
-            Upload Image
-          </label>
-          <input
-            className="form-control"
-            type="file"
-            id="foodImage"
-            accept="image/*"
-            onChange={(e) => setFoodImage(e.target.files[0])}
-            required
-          />
-        </div>
+    <div>
+      <div className="container mt-5 w-50 d-flex justify-content-center">
+        <form onSubmit={addFood}>
+          <h2 className="text-center">Add Food Item</h2>
 
-        {/* Food Name Field */}
-        <div className="mb-3">
-          <label htmlFor="foodName" className="form-label">
-            Food Name
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="foodName"
-            placeholder="Enter food name"
-            value={foodName}
-            onChange={(e) => setFoodName(e.target.value)}
-            required
-          />
-        </div>
+          {/* Image Upload Field */}
+          <div className="mb-3">
+            <label htmlFor="foodImage" className="form-label">
+              Upload Image
+            </label>
+            <input
+              className="form-control"
+              type="file"
+              id="foodImage"
+              accept="image/*"
+              onChange={(e) => setFoodImage(e.target.files[0])}
+              required
+            />
+          </div>
 
-        {/* Food Price Field */}
-        <div className="mb-3">
-          <label htmlFor="foodPrice" className="form-label">
-            Food Price (£)
-          </label>
-          <input
-            type="number"
-            className="form-control"
-            id="foodPrice"
-            placeholder="Enter food price"
-            value={foodPrice}
-            onChange={(e) => setFoodPrice(e.target.value)}
-            step="0.01"
-            required
-          />
-        </div>
+          {/* Food Name Field */}
+          <div className="mb-3">
+            <label htmlFor="foodName" className="form-label">
+              Food Name
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="foodName"
+              placeholder="Enter food name"
+              value={foodName}
+              onChange={(e) => setFoodName(e.target.value)}
+              required
+            />
+          </div>
 
-        {/* Description Field */}
-        <div className="mb-3">
-          <label htmlFor="description" className="form-label">
-            Description
-          </label>
-          <textarea
-            className="form-control"
-            id="description"
-            rows="3"
-            placeholder="Enter food description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          ></textarea>
-        </div>
+          {/* Food Price Field */}
+          <div className="mb-3">
+            <label htmlFor="foodPrice" className="form-label">
+              Food Price (£)
+            </label>
+            <input
+              type="number"
+              className="form-control"
+              id="foodPrice"
+              placeholder="Enter food price"
+              value={foodPrice}
+              onChange={(e) => setFoodPrice(e.target.value)}
+              step="0.01"
+              required
+            />
+          </div>
 
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="btn btn-primary"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Submitting..." : "Submit"}
-        </button>
-      </form>
+          {/* Description Field */}
+          <div className="mb-3">
+            <label htmlFor="description" className="form-label">
+              Description
+            </label>
+            <textarea
+              className="form-control"
+              id="description"
+              rows="3"
+              placeholder="Enter food description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+            ></textarea>
+          </div>
+
+          {/* Submit Button */}
+          <div>
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Submitting..." : "Submit"}
+            </button>
+            <NavLink to="/" href="" className="ms-2">
+              Back to Home Page
+            </NavLink>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

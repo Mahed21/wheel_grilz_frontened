@@ -1,36 +1,83 @@
+/* Styling for the header */
 .header {
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: white;
-  border-bottom: 1px solid #e0e0e0;
-  height: 70px; /* Fixed height for the header */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for a nice effect */
+  position: relative;
+  z-index: 100;
+}
+
+/* Flexbox layout for left, center (logo), and right */
+.container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 0 20px; /* Optional: Add some padding if needed */
 }
 
-.logo {
-  max-height: 100%;
-  display: flex;
-  align-items: center; /* Align the image vertically */
+/* Styling for left and right text */
+.header-left,
+.header-right {
+  flex: 1;
+  text-align: center;
 }
 
-.header-image {
-  max-height: 100%; /* Make sure the logo fits the header height */
-  height: auto;
-  width: auto; /* Maintain aspect ratio */
-  max-width: 150px; /* Optional: Set a max-width to control the image size */
-}
-.custom-btn-outline {
-  border-color: #007bff; /* Change to your primary color */
-  color: #007bff;
-  border-radius: 25px; /* Rounded corners */
-  padding: 8px 20px;
+.header-text {
+  font-size: 1.3rem;
   font-weight: bold;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  color: #ad3e00;
+  animation: fadeIn 2s ease-in-out; /* Add fade-in animation */
 }
 
-/* .custom-btn-outline:hover {
-  background-color: #007bff; 
-  color: #fff; 
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
-} */
+/* Styling for the centered logo */
+.header .logo {
+  text-align: center;
+}
+
+.header .header-logo {
+  max-width: 150px; /* Adjust the size */
+  height: auto;
+  /* Animation for logo */
+}
+
+/* Logo bounce animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Text fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .header .header-logo {
+    max-width: 120px;
+  }
+
+  .header-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header .header-logo {
+    max-width: 100px;
+  }
+
+  .header-text {
+    font-size: 0.9rem;
+  }
+}

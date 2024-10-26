@@ -4,18 +4,21 @@ import logo from "../../image/logo.png";
 
 const Header = () => {
   return (
-    <header className="header py-2">
+    <header className="header">
       <div className="container d-flex justify-content-between align-items-center">
-        <div className="logo">
-          <img src={logo} alt="Logo" className="header-image mt-2 mb-2 w-50" />
+        {/* Left side text or icon */}
+        <div className="header-left">
+          <p className="header-text">Welcome to Grillz on Wheelz</p>
         </div>
-        <div>
-          <a href="#login" className="btn custom-btn-outline me-2">
-            Contact
-          </a>
-          <a href="#login" className="btn custom-btn-outline me-2">
-            Menue
-          </a>
+
+        {/* Centered Logo */}
+        <div className="logo">
+          <img src={logo} alt="Logo" className="header-logo animate-logo" />
+        </div>
+
+        {/* Right side text or icon */}
+        <div className="header-right">
+          <p className="header-text">Delicious Meals Delivered</p>
         </div>
       </div>
     </header>

@@ -1,24 +1,18 @@
-.footer {
-  background-color: white;
-  border-top: 1px solid #e0e0e0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  padding: 10px 0;
+/* Add a border and box-shadow to the logo */
+.footer img {
+  border: 3px solid gray; /* Adjust thickness and color as needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Horizontal offset, Vertical offset, Blur radius, Shadow color */
+  border-radius: 50%; /* Ensures the image remains circular */
 }
 
-.footer-text {
-  color: #6c757d; /* Neutral gray color for text */
-  font-size: 14px; /* Adjust font size as needed */
-  margin: 0; /* Remove default margin */
+/* Optional styling for footer text */
+.footer_text {
+  margin-top: 10px;
+  font-size: 18px; /* Adjust font size */
+  color: gray; /* Text color */
 }
-
-.footer-text a {
-  color: #6c757d; /* Link color */
+.navlink-text {
   text-decoration: none; /* Remove underline */
-  padding: 0 8px; /* Spacing between links */
-}
-
-.footer-text a:hover {
-  text-decoration: underline; /* Underline on hover */
+  color: inherit; /* Keep text color consistent */
+  display: inline-block;
 }

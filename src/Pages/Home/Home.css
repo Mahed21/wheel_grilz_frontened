@@ -1,9 +1,11 @@
 .image_fixed {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100vw;
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio while scaling */
+  object-fit: cover; /* Ensure the image covers the container */
+  width: 100vw; /* Optional: to make the image take up full viewport width */
+  max-height: 100vh; /* Optional: limit the height to viewport height */
 }
+
 .card {
   transition: transform 0.3s ease-in-out;
 }
@@ -20,95 +22,60 @@
 }
 /* Home.css */
 
+/* Contact Section Styles */
+/* Contact Section Styling */
 .contact-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 300px;
-  background: linear-gradient(135deg, #277ad2, #277ad2);
-  color: white;
-  text-align: center;
-  margin-top: 50px;
-  animation: fadeInUp 2s ease-in-out;
-  position: relative;
-  overflow: hidden;
+  background-color: #f8f9fa; /* Light background */
+  height: 50vh; /* Full screen height */
 }
 
 .contact-content {
-  z-index: 1;
+  color: #000; /* Dark text */
 }
 
-.company-name {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+.contact-name {
+  font-size: 36px;
+  font-weight: bold;
+  animation: slide-in 1s ease-in-out;
+  color: #ad3e00; /* Slide-in animation for name */
 }
 
-.company-address,
-.company-phone,
-.company-email {
-  font-size: 1.2rem;
-  margin: 5px 0;
+.contact-address {
+  font-size: 20px;
+  color: #555; /* Slightly lighter color for address */
+  animation: fade-in 1.2s ease-in-out; /* Fade-in animation for address */
 }
 
-/* Background animation effect */
-.contact-section::before {
-  content: "";
-  position: absolute;
-  top: -50px;
-  left: -50px;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.3),
-    transparent 70%
-  );
-  animation: rotateBg 6s linear infinite;
-  z-index: 0;
-}
-
-@keyframes rotateBg {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Fade-in animation */
-@keyframes fadeInUp {
-  0% {
+/* Animations */
+@keyframes fade-in {
+  from {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(20px); /* Start by moving up */
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .company-name {
-    font-size: 2rem;
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-30px); /* Slide in from the left */
   }
-
-  .company-address,
-  .company-phone,
-  .company-email {
-    font-size: 1rem;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-@media (max-width: 480px) {
-  .company-name {
-    font-size: 1.5rem;
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .contact-name {
+    font-size: 28px; /* Smaller font size for mobile */
   }
 
-  .company-address,
-  .company-phone,
-  .company-email {
-    font-size: 0.9rem;
+  .contact-address {
+    font-size: 18px;
   }
 }
